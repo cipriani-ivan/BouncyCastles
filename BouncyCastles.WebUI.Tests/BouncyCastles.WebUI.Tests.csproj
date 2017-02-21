@@ -6,11 +6,11 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5E140707-092D-4D2E-BF38-2673E5E82800}</ProjectGuid>
+    <ProjectGuid>{94F476FC-51BB-49A6-BFA5-1B4DB6F8B212}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BouncyCastles.UnitTests</RootNamespace>
-    <AssemblyName>BouncyCastles.UnitTests</AssemblyName>
+    <RootNamespace>BouncyCastles.WebUI.Tests</RootNamespace>
+    <AssemblyName>BouncyCastles.WebUI.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -90,6 +90,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BouncyCastles.WebUI\BouncyCastles.WebUI.csproj">
+      <Project>{5CEE2C04-3BBD-4D64-BD6C-CA8513DA47CE}</Project>
+      <Name>BouncyCastles.WebUI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

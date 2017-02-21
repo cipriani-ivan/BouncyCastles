@@ -1,0 +1,32 @@
+﻿@using BouncyCastles.WebUI.Models
+
+@model BouncyCastlesModels
+
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+@foreach (var p in Model.Castles)
+{
+    <div>
+        @p.Orders
+        @p.NumStock
+    </div>
+}
+@foreach (var p in Model.Clients)
+{
+    <div>
+        @p.ClientsID
+        @p.Name
+    </div>
+}
+
+@foreach (var p in Model.Orders)
+            {
+    <div>
+        @p.CastlesID
+        @p.AdrRegion
+    </div>
+}

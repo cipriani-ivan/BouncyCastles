@@ -6,49 +6,94 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BouncyCastles.WebUI;
 using BouncyCastles.WebUI.Controllers;
+using Moq;
+using BouncyCastles.Domain.Entities;
+using BouncyCastles.Domain.Abstract;
+using BouncyCastles.Domain.Concrete;
+using BouncyCastles.WebUI.Models;
 
 namespace BouncyCastles.WebUI.Tests.Controllers
 {
     [TestClass]
     public class HomeControllerTest
     {
-        [TestMethod]
-        public void Index()
+        private IEFBouncyCastlesRepository castleRepository;
+
+        public HomeControllerTest()
         {
-            // Arrange
-            HomeController controller = new HomeController();
 
-            // Act
-            ViewResult result = controller.Index("Test") as ViewResult;
-
-            // Assert
-            Assert.IsNotNull(result);
+        }
+        public HomeControllerTest(IEFBouncyCastlesRepository castleRepository)
+        {
+            this.castleRepository = castleRepository;
         }
 
-        //[TestMethod]
-        //public void About()
-        //{
-        //    // Arrange
-        //    HomeController controller = new HomeController();
-
-        //    // Act
-        //    ViewResult result = controller.About() as ViewResult;
-
-        //    // Assert
-        //    Assert.AreEqual("Your application description page.", result.ViewBag.Message);
-        //}
 
         //[TestMethod]
-        //public void Contact()
+        //public void CheckOrder()
         //{
         //    // Arrange
-        //    HomeController controller = new HomeController();
+        //    Client client = new Client()
+        //    {
+        //        Name = "TestName",
+        //        Surname = "TestSurname",
+        //        PhoneNumber = 25335
+        //    };
+        //    int castleID = 1;
+
+        //    Order order = new Order()
+        //    {
+        //        AdrStreet = "TestStreet",
+        //        AdrZipCode = "TestZipCode",
+        //        AdrCity = "TestCity",
+        //        AdrRegion = "TestRegion",
+        //        StartDay = DateTime.Now,
+        //        EndDay = DateTime.Now,
+        //    };
 
         //    // Act
-        //    ViewResult result = controller.Contact() as ViewResult;
+        //    EFBouncyCastlesRepository repository = new EFBouncyCastlesRepository();        
+        //    bool insertClient = repository.setOrder(order, client, castleID);
 
         //    // Assert
-        //    Assert.IsNotNull(result);
+        //    Assert.IsTrue(insertClient);
         //}
+
+         [TestMethod]
+        public void checkgetAvailability()
+        {
+            // Arrange
+            int castleID = 1;
+
+            Order order = new Order()
+            {
+                StartDay = DateTime.Now,
+                EndDay = DateTime.Now,
+            };
+
+            // Act         
+            EFBouncyCastlesRepository repository = new EFBouncyCastlesRepository();
+            bool availability = repository.getAvailability(castleID, order.StartDay, order.EndDay);
+
+            // Assert
+            Assert.IsTrue(availability);
+        }
+
+        [TestMethod]
+        public void checkCastle()
+        {
+            // Arrange
+            int castleID = 1;
+
+
+            // Act         
+            EFBouncyCastlesRepository repository = new EFBouncyCastlesRepository();
+            Domain.Entities.Castle castle = repository.getCastle(castleID);
+
+            // Assert
+            Assert.AreEqual("Petit", castle.Type);
+        }
+
+
     }
 }

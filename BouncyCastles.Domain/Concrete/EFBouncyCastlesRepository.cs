@@ -50,15 +50,19 @@ namespace BouncyCastles.Domain.Concrete
             return checkAvailability;
         }
 
-        public void setOrder(Order order, Client client, int castleID)
+        public bool setOrder(Order order, Client client, int castleID)
         {
             //TO DO: implement this part in a storeprocedure 
             context.Clients.Add(client);
-            context.SaveChanges();
+            int m = context.SaveChanges();
             order.CastlesID = castleID;
             order.ClientsID = (from g in context.Clients where g.Name == client.Name && g.Surname == client.Surname && g.PhoneNumber == client.PhoneNumber select g.ClientsID).FirstOrDefault();
             context.Orders.Add(order);
-            context.SaveChanges();
+            int i = context.SaveChanges();
+            if (i == 1 && m == 1)
+                return true;
+            else
+                return false;
         }
 
     }

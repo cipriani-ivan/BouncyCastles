@@ -40,8 +40,8 @@ namespace BouncyCastles.WebUI.Controllers
 
             if (ModelState.IsValid && this.castleRepository.getAvailability(castleID, bouncyCastlesModel.Orders.StartDay, bouncyCastlesModel.Orders.EndDay))
             {
-                this.castleRepository.setOrder(bouncyCastlesModel.Orders, bouncyCastlesModel.Clients, castleID);
-                return RedirectToAction("Index", new { message = "The order is completed. You can started another order." });
+                bool checkOrder = this.castleRepository.setOrder(bouncyCastlesModel.Orders, bouncyCastlesModel.Clients, castleID);
+                return RedirectToAction("Index", new { message = "The order is completed. You can start another order." });
             }
             else
             {

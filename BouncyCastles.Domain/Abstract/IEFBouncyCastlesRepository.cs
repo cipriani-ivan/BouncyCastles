@@ -14,6 +14,6 @@ namespace BouncyCastles.Domain.Abstract
 
         bool getAvailability(int CastleID, DateTime start, DateTime end);
 
-        void setOrder(Order order, Client client, int castleID);
+        bool setOrder(Order order, Client client, int castleID);
     }
 }

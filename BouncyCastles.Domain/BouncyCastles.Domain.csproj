@@ -72,9 +72,16 @@
     <Compile Include="Entities\Castle.cs">
       <DependentUpon>BouncyCastles.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Castles.cs" />
+    <Compile Include="Entities\NumericLessThanAttribute.cs" />
+    <Compile Include="Entities\FutureDateAttribute.cs" />
+    <Compile Include="Entities\IClientValidatable.cs" />
+    <Compile Include="Entities\NumericGreaterThanAttribute.cs" />
+    <Compile Include="Entities\Orders.cs" />
     <Compile Include="Entities\Client.cs">
       <DependentUpon>BouncyCastles.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Clients.cs" />
     <Compile Include="Entities\Order.cs">
       <DependentUpon>BouncyCastles.tt</DependentUpon>
     </Compile>

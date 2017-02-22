@@ -10,9 +10,13 @@ namespace BouncyCastles.WebUI.Models
     {
         public Client Clients { get; set; }
         public Order Orders { get; set; }
-        public IEnumerable<Castle> Castles { get; set; }
+        public List<Castle> Castles { get; set; }
 
-        public BouncyCastlesModels(Client Clients, Order Orders, IEnumerable<Castle> Castles)
+        public BouncyCastlesModels()
+        {
+        }
+
+        public BouncyCastlesModels(Client Clients, Order Orders, List<Castle> Castles)
         {
             this.Clients = Clients;
             this.Castles = Castles;

@@ -7,26 +7,93 @@
     ViewBag.Title = "Home Page";
 }
 
-
-@foreach (var p in Model.Castles)
+@if(ViewBag.Message != null)
 {
-    <div>
-        @p.Orders
-        @p.NumStock
-    </div>
-}
-@foreach (var p in Model.Clients)
-{
-    <div>
-        @p.ClientsID
-        @p.Name
-    </div>
+    <h2>@ViewBag.Message</h2>
 }
 
-@foreach (var p in Model.Orders)
-            {
+@using (Html.BeginForm())
+{
+    <div>@Html.ValidationSummary(true)</div>
+
     <div>
-        @p.CastlesID
-        @p.AdrRegion
+        @Html.LabelFor(m => m.Clients.Name)
+        @Html.EditorFor(m => m.Clients.Name)
     </div>
+
+
+    <div>
+        <div>
+
+        </div>
+        <div>
+
+            @Html.LabelFor(m => m.Clients.Surname)
+            @Html.EditorFor(m => m.Clients.Surname)
+        </div>
+        <div>
+            
+            @Html.LabelFor(m => m.Clients.PhoneNumber)
+            @Html.EditorFor(m => m.Clients.PhoneNumber)
+
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Orders.AdrStreet)
+            @Html.EditorFor(m => m.Orders.AdrStreet)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Orders.AdrCity)
+            @Html.EditorFor(m => m.Orders.AdrCity)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Orders.AdrZipCode)
+            @Html.EditorFor(m => m.Orders.AdrZipCode)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Orders.AdrRegion)
+            @Html.EditorFor(m => m.Orders.AdrRegion)
+
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Orders.StartDay)
+            @Html.EditorFor(m => m.Orders.StartDay)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Orders.EndDay)
+            @Html.EditorFor(m => m.Orders.EndDay)
+        </div>
+    </div>
+
+
+    var first = true;
+
+    foreach (var p in Model.Castles)
+    {
+        <div>
+            <span>
+                @if(first)
+                {
+                   <input type="radio" name="CastleID" value="@p.CastlesID" checked> @p.Type
+                   first = false;
+                }
+                else
+                {
+                    <input type="radio" name="CastleID" value="@p.CastlesID"> @p.Type                  
+                }
+            </span>
+            <span>
+                @p.MaxCapacity
+            </span>
+            <span>
+                @p.PriceForDay
+            </span>
+            <span>
+                @p.NumStock
+            </span>
+        </div>
+
+    }
+    <input type="submit" value="Make the Order" />
+
 }
+

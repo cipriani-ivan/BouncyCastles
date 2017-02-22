@@ -22,17 +22,32 @@ namespace BouncyCastles.WebUI.Controllers
             this.castleRepository = castleRepository;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(string message)
         {
-            BouncyCastlesModels BouncyCastlesModel = new BouncyCastlesModels(new Client(), new Order(), this.castleRepository.Castles);
+            ViewBag.Message = String.IsNullOrEmpty(message) ? null : message;
+            Order order = new Order();
+            order.StartDay = DateTime.Now;
+            order.EndDay = DateTime.Now;
+            BouncyCastlesModels BouncyCastlesModel = new BouncyCastlesModels(new Client(), order, this.castleRepository.Castles.ToList());
             return View(BouncyCastlesModel);
         }
 
         [HttpPost]
-        public ActionResult Index(BouncyCastlesModels BouncyCastlesModel)
+        public ActionResult Index(BouncyCastlesModels bouncyCastlesModel, int castleID)
         {
+            bouncyCastlesModel.Castles = new List<Castle>();
+            bouncyCastlesModel.Castles.Add(this.castleRepository.getCastle(castleID));
 
-            return View(BouncyCastlesModel);
+            if (ModelState.IsValid && this.castleRepository.getAvailability(castleID, bouncyCastlesModel.Orders.StartDay, bouncyCastlesModel.Orders.EndDay))
+            {
+                this.castleRepository.setOrder(bouncyCastlesModel.Orders, bouncyCastlesModel.Clients, castleID);
+                return RedirectToAction("Index", new { message = "The order is completed. You can started another order." });
+            }
+            else
+            {
+                bouncyCastlesModel.Castles = this.castleRepository.Castles.ToList();
+                return View(bouncyCastlesModel);
+            }
         }
 
         //public ActionResult About()

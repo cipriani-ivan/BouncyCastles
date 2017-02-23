@@ -74,11 +74,11 @@
       <DependentUpon>BouncyCastles.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Castles.cs" />
-    <Compile Include="Entities\RegexFromDbValidatorAttribute.cs" />
-    <Compile Include="Entities\NumericLessThanAttribute.cs" />
-    <Compile Include="Entities\FutureDateAttribute.cs" />
-    <Compile Include="Entities\IClientValidatable.cs" />
-    <Compile Include="Entities\NumericGreaterThanAttribute.cs" />
+    <Compile Include="CustomAttribute\RegexFromDbValidatorAttribute.cs" />
+    <Compile Include="CustomAttribute\NumericLessThanAttribute.cs" />
+    <Compile Include="CustomAttribute\FutureDateAttribute.cs" />
+    <Compile Include="CustomAttribute\IClientValidatable.cs" />
+    <Compile Include="CustomAttribute\NumericGreaterThanAttribute.cs" />
     <Compile Include="Entities\Orders.cs" />
     <Compile Include="Entities\Client.cs">
       <DependentUpon>BouncyCastles.tt</DependentUpon>

@@ -1,7 +1,7 @@
 ﻿using BouncyCastles.WebUI.Infrastructure;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Configuration;
+
 
 namespace BouncyCastles.Domain.Entities
 {

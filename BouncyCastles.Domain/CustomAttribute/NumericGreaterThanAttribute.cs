@@ -9,7 +9,7 @@ namespace BouncyCastles.WebUI.Infrastructure
     public class NumericGreaterThanAttribute : ValidationAttribute, IClientValidatable
     {
         private const string greaterThanErrorMessage = "{0} must be greater than {1}.";
-        private const string greaterThanOrEqualToErrorMessage = "{1} must be greater than or equal to {0}.";
+        private const string greaterThanOrEqualToErrorMessage = "{0} must be greater than or equal to {1}.";
 
         public string OtherProperty { get; private set; }
 

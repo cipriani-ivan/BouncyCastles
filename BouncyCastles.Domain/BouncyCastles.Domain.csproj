@@ -40,6 +40,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -73,6 +74,7 @@
       <DependentUpon>BouncyCastles.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Castles.cs" />
+    <Compile Include="Entities\RegexFromDbValidatorAttribute.cs" />
     <Compile Include="Entities\NumericLessThanAttribute.cs" />
     <Compile Include="Entities\FutureDateAttribute.cs" />
     <Compile Include="Entities\IClientValidatable.cs" />

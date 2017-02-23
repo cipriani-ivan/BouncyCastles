@@ -302,6 +302,10 @@
       <Project>{8298bed8-6695-47f1-a090-ac7588521809}</Project>
       <Name>BouncyCastles.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{c58b87e8-c372-46d9-a810-8b47b2132246}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

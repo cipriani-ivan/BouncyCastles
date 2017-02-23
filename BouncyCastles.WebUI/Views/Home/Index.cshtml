@@ -7,7 +7,7 @@
     ViewBag.Title = "Home Page";
 }
 
-@if(ViewBag.Message != null)
+@if (ViewBag.Message != null)
 {
     <h2>@ViewBag.Message</h2>
 }
@@ -32,7 +32,7 @@
             @Html.EditorFor(m => m.Clients.Surname)
         </div>
         <div>
-            
+
             @Html.LabelFor(m => m.Clients.PhoneNumber)
             @Html.EditorFor(m => m.Clients.PhoneNumber)
 
@@ -71,14 +71,14 @@
     {
         <div>
             <span>
-                @if(first)
+                @if (first)
                 {
-                   <input type="radio" name="CastleID" value="@p.CastlesID" checked> @p.Type
-                   first = false;
+                    <input type="radio" name="CastleID" value="@p.CastlesID" checked> @p.Type
+                    first = false;
                 }
                 else
                 {
-                    <input type="radio" name="CastleID" value="@p.CastlesID"> @p.Type                  
+                    <input type="radio" name="CastleID" value="@p.CastlesID"> @p.Type
                 }
             </span>
             <span>
@@ -97,3 +97,13 @@
 
 }
 
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            var $datepicker = $('#Orders_StartDay, #Orders_EndDay');
+            var today = new Date();
+            today.toISOString().substring(0, 10);
+            $datepicker.val(today.toISOString().substring(0, 10));
+        })
+    </script>
+}

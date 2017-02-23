@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Resources;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace BouncyCastles.Domain.Entities
@@ -11,17 +12,19 @@ namespace BouncyCastles.Domain.Entities
 
     public class Clients
     {
-
         public int ClientsID { get; set; }
         [Required]
         [MaxLength(50)]
+        [DisplayName("Name")]
         public string Name { get; set; }
         [Required]
         [MaxLength(50)]
+        [DisplayName("Surname")]
         public string Surname { get; set; }
         [Required]
         [DataType(DataType.PhoneNumber)]
         [Range(0, 999999999)]
+        [DisplayName("Phone number")]
         public int PhoneNumber { get; set; }
     }
 

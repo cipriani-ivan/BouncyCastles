@@ -6,8 +6,6 @@ using System.Reflection;
 
 namespace BouncyCastles.WebUI.Infrastructure
 {
-
-
     public class NumericGreaterThanAttribute : ValidationAttribute, IClientValidatable
     {
         private const string greaterThanErrorMessage = "{0} must be greater than {1}.";
@@ -91,8 +89,6 @@ namespace BouncyCastles.WebUI.Infrastructure
             }
             return "*." + property;
         }
-
-
     }
 }
 

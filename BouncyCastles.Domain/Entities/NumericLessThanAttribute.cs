@@ -6,8 +6,6 @@ using System.Reflection;
 
 namespace BouncyCastles.WebUI.Infrastructure
 {
-
-
     public class NumericLessThanAttribute : ValidationAttribute, IClientValidatable
     {
         private const string lessThanErrorMessage = "{0} must be less than {1}.";
@@ -91,8 +89,6 @@ namespace BouncyCastles.WebUI.Infrastructure
             }
             return "*." + property;
         }
-
-
     }
 }
 

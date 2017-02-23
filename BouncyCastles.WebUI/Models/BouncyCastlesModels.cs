@@ -22,6 +22,5 @@ namespace BouncyCastles.WebUI.Models
             this.Castles = Castles;
             this.Orders = Orders;
         }
-
     }
 }

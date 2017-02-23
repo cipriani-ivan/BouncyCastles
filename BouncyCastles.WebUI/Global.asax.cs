@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading;
 using System.Web;
@@ -19,18 +20,17 @@ namespace BouncyCastles.WebUI
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
-        private void Application_BeginRequest(Object source, EventArgs e)
-        {
-            HttpApplication application = (HttpApplication)source;
-            HttpContext context = application.Context;
+        // Uncomment to set Dutch
+        //private void Application_BeginRequest(Object source, EventArgs e)
+        //{
+        //    HttpApplication application = (HttpApplication)source;
+        //    HttpContext context = application.Context;
 
-            string culture = null;
-            if (context.Request.UserLanguages != null && Request.UserLanguages.Length > 0)
-            {
-                culture = Request.UserLanguages[0];
-                Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentCulture;
-                Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
-            }
-        }
+        //    if (context.Request.UserLanguages != null && Request.UserLanguages.Length > 0)
+        //    {               
+        //        Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("nl-nl");
+        //        Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture("nl-nl");
+        //    }
+        //}
     }
 }

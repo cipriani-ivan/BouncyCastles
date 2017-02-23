@@ -2,7 +2,6 @@
 
 @model BouncyCastlesModels
 
-
 @{
     ViewBag.Title = "Home Page";
 }
@@ -16,61 +15,68 @@
 {
     <div>@Html.ValidationSummary()</div>
 
-    <div>
-        @Html.LabelFor(m => m.Clients.Name)
-        @Html.EditorFor(m => m.Clients.Name)
-    </div>
-
-
-    <div>
+    <div class="info">
         <div>
-
+            @Resource.Name
+            @Html.EditorFor(m => m.Clients.Name)
         </div>
         <div>
-
-            @Html.LabelFor(m => m.Clients.Surname)
+            @Resource.Surname
             @Html.EditorFor(m => m.Clients.Surname)
         </div>
         <div>
-
-            @Html.LabelFor(m => m.Clients.PhoneNumber)
+            @Resource.PhoneNumber
             @Html.EditorFor(m => m.Clients.PhoneNumber)
-
         </div>
         <div>
-            @Html.LabelFor(m => m.Orders.AdrStreet)
+            @Resource.Address
             @Html.EditorFor(m => m.Orders.AdrStreet)
         </div>
         <div>
-            @Html.LabelFor(m => m.Orders.AdrCity)
+            @Resource.City
             @Html.EditorFor(m => m.Orders.AdrCity)
         </div>
         <div>
-            @Html.LabelFor(m => m.Orders.AdrZipCode)
+            @Resource.ZipCode
             @Html.EditorFor(m => m.Orders.AdrZipCode)
         </div>
         <div>
-            @Html.LabelFor(m => m.Orders.AdrRegion)
+            @Resource.Region
             @Html.EditorFor(m => m.Orders.AdrRegion)
 
         </div>
         <div>
-            @Html.LabelFor(m => m.Orders.StartDay)
+            @Resource.StartDay
             @Html.EditorFor(m => m.Orders.StartDay)
         </div>
         <div>
-            @Html.LabelFor(m => m.Orders.EndDay)
+            @Resource.EndDay
             @Html.EditorFor(m => m.Orders.EndDay)
         </div>
     </div>
 
+    <br />
 
     var first = true;
+    <div class="castle">
+        <div>
+            @Resource.Type
+        </div>
+        <div>
+            @Resource.MaxCapacity
+        </div>
+        <div>
+            @Resource.InStock
+        </div>
+        <div>
+            @Resource.Priceperday
+        </div>
+    </div>
 
     foreach (var p in Model.Castles)
     {
-        <div>
-            <span>
+        <div class="castle">
+            <div>
                 @if (first)
                 {
                     <input type="radio" name="CastleID" value="@p.CastlesID" checked> @p.Type
@@ -80,20 +86,20 @@
                 {
                     <input type="radio" name="CastleID" value="@p.CastlesID"> @p.Type
                 }
-            </span>
-            <span>
+            </div>
+            <div>
                 @p.MaxCapacity
-            </span>
-            <span>
-                @p.PriceForDay
-            </span>
-            <span>
+            </div>
+            <div>
                 @p.NumStock
-            </span>
+            </div>
+            <div>
+                @p.PriceForDay €
+            </div>
         </div>
 
     }
-    <input type="submit" value="Make the Order" />
+    <input type="submit" value="@Resource.Maketheorder" />
 
 }
 
@@ -107,3 +113,24 @@
         })
     </script>
 }
+
+@section style{
+    <style>
+        div.castle {
+            width: 620px;
+            height: 50px;
+        }
+
+            div.castle > div {
+                width: 150px;
+                float:left;
+            }
+
+        div.info > div {
+            width: 200px;
+        }
+    </style>
+}
+
+
+

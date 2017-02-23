@@ -59,7 +59,7 @@ namespace BouncyCastles.WebUI.Tests.Controllers
         //    Assert.IsTrue(insertClient);
         //}
 
-         [TestMethod]
+        [TestMethod]
         public void checkgetAvailability()
         {
             // Arrange
@@ -85,7 +85,6 @@ namespace BouncyCastles.WebUI.Tests.Controllers
             // Arrange
             int castleID = 1;
 
-
             // Act         
             EFBouncyCastlesRepository repository = new EFBouncyCastlesRepository();
             Domain.Entities.Castle castle = repository.getCastle(castleID);
@@ -93,7 +92,5 @@ namespace BouncyCastles.WebUI.Tests.Controllers
             // Assert
             Assert.AreEqual("Petit", castle.Type);
         }
-
-
     }
 }
